@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ExerciseEntity extends BaseEntity {
 
-    @Column(name="name", nullable = false)
+    @Column(name="name")
     private String name;
 
     @Column(name="started_on")
