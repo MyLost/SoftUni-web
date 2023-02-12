@@ -4,9 +4,11 @@ import com.softuni.BattleShips.domain.helpers.LoggedUser;
 import com.softuni.BattleShips.model.ShipModel;
 import com.softuni.BattleShips.model.UserModel;
 import com.softuni.BattleShips.model.UserWithShipsModel;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class BattleService {
 
     private final UserService userService;
