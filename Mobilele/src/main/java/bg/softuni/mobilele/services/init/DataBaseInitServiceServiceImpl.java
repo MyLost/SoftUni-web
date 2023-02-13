@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DataBaseInitServiceImpl implements DataBaseInitService {
+public class DataBaseInitServiceServiceImpl implements DataBaseInitServiceService {
     private final UserRoleService roleService;
 
     @Autowired
-    public DataBaseInitServiceImpl(UserRoleService roleService) {
+    public DataBaseInitServiceServiceImpl(UserRoleService roleService) {
         this.roleService = roleService;
     }
 
