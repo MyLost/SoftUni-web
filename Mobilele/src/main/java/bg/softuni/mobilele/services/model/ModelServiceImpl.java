@@ -1,12 +1,12 @@
 package bg.softuni.mobilele.services.model;
 
 import bg.softuni.mobilele.repositories.ModelRepository;
-import bg.softuni.mobilele.services.init.DataBaseInitService;
+import bg.softuni.mobilele.services.init.DataBaseInitServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ModelServiceImpl implements ModelService, DataBaseInitService {
+public class ModelServiceImpl implements ModelService, DataBaseInitServiceService {
 
     private final ModelRepository modelRepository;
 
