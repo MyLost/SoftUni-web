@@ -1,4 +1,4 @@
-package com.softuni.book.model.dto;
+package com.softuni.book.model.dtos;
 
 import lombok.*;
 
