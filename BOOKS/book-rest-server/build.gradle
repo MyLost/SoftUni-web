@@ -32,6 +32,7 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.1.4'
+	implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.2.15'
 
 
 }
