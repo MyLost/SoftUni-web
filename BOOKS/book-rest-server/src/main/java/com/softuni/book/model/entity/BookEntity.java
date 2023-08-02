@@ -1,18 +1,15 @@
 package com.softuni.book.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Table(name = "books")
 @Getter
 @Setter
-@Table(name = "books")
-@ToString
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class BookEntity extends BaseEntity {
 
     private String title;
