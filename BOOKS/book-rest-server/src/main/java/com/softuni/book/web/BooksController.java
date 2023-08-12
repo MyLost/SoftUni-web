@@ -7,6 +7,9 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -26,9 +29,17 @@ public class BooksController {
     }
 
     @GetMapping
-    public ResponseEntity<List<BookDto>> getAllBook() {
+    public ResponseEntity<List<BookDto>> getAllBook(
+        @PageableDefault(
+            sort = "bookId",
+            direction = Sort.Direction.ASC,
+            page = 0,
+            size = 3
+        )
+        Pageable pageable
+    ) {
         return ResponseEntity.
-                ok(bookService.getAllBooks());
+                ok(bookService.getAllBooks(pageable));
     }
 
     @Operation(summary = "Get book by the given ID")
