@@ -1,7 +1,6 @@
 package com.softuni.book;
 
 import com.softuni.book.model.entity.AuthorEntity;
-import com.softuni.book.model.entity.BookEntity;
 import com.softuni.book.repository.AuthorRepository;
 import com.softuni.book.repository.BookRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
-public class BooksApplicationInit implements CommandLineRunner {
+public class BooksApplicationInit implements  CommandLineRunner {
 
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
@@ -70,23 +69,23 @@ public class BooksApplicationInit implements CommandLineRunner {
     }
 
     private void initAuthor(String authorName, String... books) {
-        AuthorEntity author = new AuthorEntity();
-        author.setName(authorName);
-        author = authorRepository.save(author);
-
-        List<BookEntity> allBooks = new ArrayList<>();
-
-        for (String book: books) {
-            BookEntity aBook = new BookEntity();
-            aBook.setAuthor(author);
-            aBook.setTitle(book);
-            aBook.setIsbn(UUID.randomUUID().toString());//random string, not real, dummy
-            allBooks.add(aBook);
-        }
-
-        author.setBooks(allBooks);
-        authorRepository.save(author);
-
-        bookRepository.saveAll(allBooks);
+//        AuthorEntity author = new AuthorEntity();
+//        author.setName(authorName);
+//        author = authorRepository.save(author);
+//
+//        List<BookEntity> allBooks = new ArrayList<>();
+//
+//        for (String book: books) {
+//            BookEntity aBook = new BookEntity();
+//            aBook.setAuthor(author);
+//            aBook.setTitle(book);
+//            aBook.setIsbn(UUID.randomUUID().toString());//random string, not real, dummy
+//            allBooks.add(aBook);
+//        }
+//
+//        author.setBooks(allBooks);
+//        authorRepository.save(author);
+//
+//        bookRepository.saveAll(allBooks);
     }
 }
