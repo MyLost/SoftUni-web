@@ -1,12 +1,17 @@
 package com.softuni.book.service;
 
+//import com.softuni.book.model.entity.UserEntity;
+//import com.softuni.book.model.entity.UserRoleEntity;
+//import com.softuni.book.model.enums.UserRoleEnum;
+//import com.softuni.book.repository.UserRepository;
+//import com.softuni.book.repository.UserRoleRepository;
 import com.softuni.book.model.entity.UserEntity;
 import com.softuni.book.model.entity.UserRoleEntity;
 import com.softuni.book.model.enums.UserRoleEnum;
 import com.softuni.book.repository.UserRepository;
 import com.softuni.book.repository.UserRoleRepository;
 import jakarta.annotation.PostConstruct;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,12 +22,12 @@ public class InitService {
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
 
-    private final PasswordEncoder passwordEncoder;
+//    private final PasswordEncoder passwordEncoder;
 
-    public InitService(UserRepository userRepository, UserRoleRepository userRoleRepository, PasswordEncoder passwordEncoder) {
+    public InitService(UserRepository userRepository, UserRoleRepository userRoleRepository) {
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
-        this.passwordEncoder = passwordEncoder;
+//        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -48,22 +53,22 @@ public class InitService {
     }
 
     private void initAdmin() {
-        var adminUser = UserEntity.builder()
-                .email("admin@example.com")
-                .firstName("admin")
-                .lastName("admin")
-                .password(passwordEncoder.encode("admin"))
-                .roles(userRoleRepository.findAll()).build();
-        userRepository.save(adminUser);
+//        var adminUser = UserEntity.builder()
+//                .email("admin@example.com")
+//                .firstName("admin")
+//                .lastName("admin")
+//                .password(passwordEncoder.encode("admin"))
+//                .roles(userRoleRepository.findAll()).build();
+//        userRepository.save(adminUser);
     }
 
     private void initModerator() {
-        var moderatorUser = UserEntity.builder()
-            .email("moderator@example.com")
-            .firstName("moderator")
-            .lastName("moderator")
-            .password(passwordEncoder.encode("moderator"))
-            .roles(List.of(userRoleRepository.findUserRoleEntityByRole(UserRoleEnum.MODERATOR).orElseThrow())).build();
-        userRepository.save(moderatorUser);
+//        var moderatorUser = UserEntity.builder()
+//            .email("moderator@example.com")
+//            .firstName("moderator")
+//            .lastName("moderator")
+//            .password(passwordEncoder.encode("moderator"))
+//            .roles(List.of(userRoleRepository.findUserRoleEntityByRole(UserRoleEnum.MODERATOR).orElseThrow())).build();
+//        userRepository.save(moderatorUser);
     }
 }
