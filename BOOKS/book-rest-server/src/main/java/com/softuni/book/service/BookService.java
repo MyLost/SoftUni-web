@@ -2,10 +2,15 @@ package com.softuni.book.service;
 
 import com.softuni.book.model.dtos.AuthorDto;
 import com.softuni.book.model.dtos.BookDto;
+//import com.softuni.book.model.entity.AuthorEntity;
+//import com.softuni.book.model.entity.BookEntity;
+//import com.softuni.book.repository.AuthorRepository;
+//import com.softuni.book.repository.BookRepository;
 import com.softuni.book.model.entity.AuthorEntity;
 import com.softuni.book.model.entity.BookEntity;
 import com.softuni.book.repository.AuthorRepository;
 import com.softuni.book.repository.BookRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,12 +33,13 @@ public class BookService {
         String authorName = newBook.getAuthor().getName();
         Optional<AuthorEntity> authorOpt = this.authorRepository.findAuthorEntityByName(authorName);
 
-        BookEntity newBookEntity = BookEntity.builder().
-                title(newBook.getTitle()).
-                isbn(newBook.getIsbn()).
-                author(authorOpt.orElseGet(() -> createNewAuthor(authorName))).build();
-
-        return bookRepository.save(newBookEntity).getId();
+//        BookEntity newBookEntity = BookEntity.builder().
+//                title(newBook.getTitle()).
+//                isbn(newBook.getIsbn()).
+//                author(authorOpt.orElseGet(() -> createNewAuthor(authorName))).build();
+//
+//        return bookRepository.save(newBookEntity).getId();
+        return 0;
     }
 
     private AuthorEntity createNewAuthor(String authorName) {
@@ -47,27 +53,30 @@ public class BookService {
     }
 
     public Optional<BookDto> findBookById(Long bookId) {
-        return bookRepository.
-                findById(bookId).
-                map(this::map);
+//        return bookRepository.
+//                findById(bookId).
+//                map(this::map);
+        return null;
     }
 
-    public List<BookDto> getAllBooks() {
-        return bookRepository.findAll().
-                stream().
-                map(this::map).
-                toList();
+    public List<BookDto> getAllBooks(Pageable pageable) {
+//        return bookRepository.findAll(pageable).
+//                stream().
+//                map(this::map).
+//                toList();
+        return null;
     }
 
     private BookDto map(BookEntity bookEntity) {
 
-        AuthorDto authorDTO = new AuthorDto().builder().
-                name(bookEntity.getAuthor().getName()).build();
-
-        return  BookDto.builder().
-                id(bookEntity.getId()).
-                author(authorDTO).
-                isbn(bookEntity.getIsbn()).
-                title(bookEntity.getTitle()).build();
+//        AuthorDto authorDTO = new AuthorDto().builder().
+//                name(bookEntity.getAuthor().getName()).build();
+//
+//        return  BookDto.builder().
+//                id(bookEntity.getId()).
+//                author(authorDTO).
+//                isbn(bookEntity.getIsbn()).
+//                title(bookEntity.getTitle()).build();
+        return null;
     }
 }
